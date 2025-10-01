@@ -37,6 +37,12 @@ h1 {
     margin-bottom: 40px; 
 }
 
+video {
+    width: 100%; /* O vídeo ocupa 100% da largura do seu contêiner */
+    height: auto; /* Mantém a proporção do vídeo */
+    max-width: 400px; /* Limita a largura máxima para que não fique gigante em telas grandes */
+}
+
 /* Estilos para as duas imagens maiores */
 .gallery-large {
     display: flex;
@@ -73,4 +79,32 @@ h1 {
 /* Efeito de zoom ao passar o mouse para todas as imagens */
 img:hover {
     transform: scale(1.05);
+}
+/* Media Query: Estilos para telas com no máximo 600px de largura (celulares) */
+@media (max-width: 600px) {
+    /* Faz com que as imagens da galeria pequena fiquem maiores */
+    .gallery-small img {
+        width: 45%; /* Agora cabem 2 imagens por linha */
+    }
+
+    /* Faz com que as imagens da galeria grande fiquem ainda maiores */
+    .gallery-large img {
+        width: 85%; /* Agora cabe 1 imagem por linha */
+    }
+
+    /* Opcional: Ajusta o tamanho do logo e do título para telas pequenas */
+    .logo {
+        width: 100px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+}
+/* Media Query: Estilos para telas com no mínimo 601px de largura (computadores) */
+@media (min-width: 601px) {
+    /* Faz com que a galeria de vídeos não quebre a linha */
+    .video-gallery {
+        flex-wrap: nowrap;
+    }
 }
